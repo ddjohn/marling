@@ -23,6 +23,7 @@ public:
 
 	void setHardwareParameters(snd_pcm_access_t access, snd_pcm_format_t format, int channels, unsigned int sampling);
 	void prepare();
+	void read(short* buf, int length);
 	void write(short* buf, int length);
 
 	static std::string getVersion();

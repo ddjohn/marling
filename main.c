@@ -34,6 +34,14 @@ int main() {
 		std::cout << "Resume: " << alsa->canResume() << std::endl; 
 		std::cout << "Access: " << alsa->getAccessName() << std::endl; 
 		delete alsa;
+
+
+		Alsa* alsa2 = new Alsa("default");
+		alsa2->setHardwareParameters(SND_PCM_ACCESS_RW_INTERLEAVED, SND_PCM_FORMAT_S16_LE, 2, 44100);
+		alsa2->prepare();
+		alsa2->read(buf, 3);
+		delete alsa2;
+		
 	}
 	catch(std::logic_error error) {
 		std::cerr << "Exception: " << error.what() << std::endl;

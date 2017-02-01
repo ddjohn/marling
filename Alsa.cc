@@ -46,6 +46,11 @@ void Alsa::write(short* buf, int length) {
 	CHECK(snd_pcm_writei(handle, buf, length));	
 }
 
+void Alsa::read(short* buf, int length) {
+	METHOD("read(short[], int)");
+	CHECK(snd_pcm_readi(handle, buf, length));	
+}
+
 bool Alsa::canSyncStart() {
 	METHOD("canSyncStart()");
 	return snd_pcm_hw_params_can_sync_start(params);
