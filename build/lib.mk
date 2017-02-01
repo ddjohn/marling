@@ -1,12 +1,14 @@
 include $(DAJO_BUILD)/compile.mk
 
 SOURCES=$(wildcard *.cc)
-OBJECTS=$(DAJO_OUT)/$(NAME)/$(subst .cc,.o,$(SOURCES))
+OBJECTS=$(addprefix $(DAJO_OUT)/$(NAME)/,$(subst .cc,.o,$(SOURCES)))
 
-all: $(OBJECTS) | mkdir
+#$(warning "sources="$(SOURCES))
+#$(warning "objects="$(OBJECTS))
+
+#$(shell echo MKDIR $(DAJO_OUT)/$(NAME))
+$(shell mkdir -p $(DAJO_OUT)/$(NAME))
+
+all: $(OBJECTS) 
 	@echo " LIB  $(DAJO_OUT)/$(NAME)/$(NAME).a"
 	@ar r $(DAJO_OUT)/$(NAME)/$(NAME).a $(OBJECTS)
-
-mkdir:
-	@echo "MKDIR $(DAJO_OUT)/$(NAME)" 
-	@mkdir -p $(DAJO_OUT)/$(NAME)
