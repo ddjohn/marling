@@ -9,9 +9,9 @@ void CHECK(int rc) {
 		EXCEPTION(snd_strerror(rc));
 }
 
-Alsa::Alsa(std::string device) {
+Alsa::Alsa(std::string device, int type) {
 	METHOD("Alsa()");
-	CHECK(snd_pcm_open(&handle, device.c_str(), SND_PCM_STREAM_PLAYBACK, 0)); 
+	CHECK(snd_pcm_open(&handle, device.c_str(), (snd_pcm_stream_t)type, 0)); 
 	CHECK(snd_pcm_hw_params_malloc(&params));
 	CHECK(snd_pcm_hw_params_any(handle, params));
 }

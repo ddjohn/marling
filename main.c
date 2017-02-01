@@ -21,7 +21,7 @@ int main() {
 		std::cout << "Subformats: " << std::endl; vec(Alsa::getSubFormats());
 		std::cout << "States: " << std::endl; vec(Alsa::getStates());
 
-		Alsa* alsa = new Alsa("default");
+		Alsa* alsa = new Alsa("default", SND_PCM_STREAM_PLAYBACK);
 		alsa->setHardwareParameters(SND_PCM_ACCESS_RW_INTERLEAVED, SND_PCM_FORMAT_S16_LE, 2, 44100);
 		alsa->prepare();
 		short buf[] = {1,2,3};
@@ -35,8 +35,7 @@ int main() {
 		std::cout << "Access: " << alsa->getAccessName() << std::endl; 
 		delete alsa;
 
-
-		Alsa* alsa2 = new Alsa("default");
+		Alsa* alsa2 = new Alsa("default", SND_PCM_STREAM_CAPTURE);
 		alsa2->setHardwareParameters(SND_PCM_ACCESS_RW_INTERLEAVED, SND_PCM_FORMAT_S16_LE, 2, 44100);
 		alsa2->prepare();
 		alsa2->read(buf, 3);

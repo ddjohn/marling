@@ -10,7 +10,7 @@
 class Alsa {
 
 public:
-	Alsa(std::string device);
+	Alsa(std::string device, int type);
 	~Alsa();
 
 	bool canSyncStart();
