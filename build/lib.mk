@@ -6,6 +6,8 @@ OBJECTS=$(addprefix $(DAJO_OUT)/$(NAME)/,$(subst .cc,.o,$(SOURCES)))
 #$(shell echo MKDIR $(DAJO_OUT)/$(NAME))
 $(shell mkdir -p $(DAJO_OUT)/$(NAME))
 
+-include $(OBJECTS:.o=.d)
+
 all: $(DAJO_OUT)/$(NAME).a
 
 $(DAJO_OUT)/$(NAME).a: $(OBJECTS) 
