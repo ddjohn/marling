@@ -13,6 +13,8 @@ all:
 test:
 	@echo " CD   test_alsa"
 	@make -s -C test_alsa -f build.mk all
+	@echo " CD   test_sharedmem"
+	@make -s -C test_sharedmem -f build.mk all
 
 clean:
 	@rm -rf out
