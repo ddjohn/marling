@@ -42,7 +42,11 @@ int main() {
 		alsa2->read(buf, 3);
 		delete alsa2;
 		
-		SharedMemory* mem = new SharedMemory();
+		SharedMemory* mem = new SharedMemory("file.txt");
+		mem->attach();
+		mem->update("hello world");
+		std::cout << "size: " << mem->size() << std::endl;
+		mem->detach();
 		delete mem;
 	}
 	catch(std::logic_error error) {

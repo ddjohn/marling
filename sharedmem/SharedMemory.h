@@ -1,14 +1,23 @@
 #ifndef SHAREDMEMORY_H
 #define SHAREDMEMORY_H
 
+#include <string>
+#include <sys/types.h>
+
 class SharedMemory {
 
 public:
-   SharedMemory();
+   SharedMemory(std::string file);
    ~SharedMemory();
 
-private:
+   void attach();
+   void detach();
+   void update(std::string msg);
+   int size();
 
+private:
+   key_t segment;
+   char* ptr;
 };
 
 #endif

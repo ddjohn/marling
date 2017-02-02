@@ -27,12 +27,12 @@ cat <<- +++ > ${1}.cc
 CLASS("${CLASS}");
 
 ${CLASS}::${CLASS}() {
-   METHOD("${CLASS}");
+   METHOD("${CLASS}()");
 
 }
 
 ${CLASS}::~${CLASS}() {
-   METHOD("~${CLASS}");
+   METHOD("~${CLASS}()");
 
 }
 
