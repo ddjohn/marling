@@ -19,9 +19,9 @@ Trace::~Trace() {
 	std::cerr << buf << std::endl;
 }
 	
-void Trace::log(const char* msg) {
+void Trace::log(std::string msg) {
 	char buf[256];
-	sprintf(buf, "### (%d) %s::%s", scope, clazz.c_str(), method.c_str());
+	sprintf(buf, "### (%d) %s::%s %s", scope, clazz.c_str(), method.c_str(), msg.c_str());
 	std::cerr << buf << std::endl;
 }
 

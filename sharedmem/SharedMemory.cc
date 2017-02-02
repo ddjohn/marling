@@ -14,6 +14,8 @@ SharedMemory::SharedMemory(std::string file) {
 
    if((segment = ftok(file.c_str(), 'R')) == -1)
       EXCEPTION(strerror(errno));
+
+    INFO("sharedmem = 0x" << std::hex << segment);
 }
 
 SharedMemory::~SharedMemory() {
