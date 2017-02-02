@@ -11,3 +11,7 @@ export PATH=${DAJO_BUILD}:${PATH}
 m() {
 	make -f build.mk "$@"
 }
+
+top() {
+	cd ${DAJO_ROOT}
+}
