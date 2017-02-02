@@ -13,6 +13,7 @@ public:
    void attach();
    void detach();
    void update(std::string msg);
+   std::string read();
    int size();
 
 private:

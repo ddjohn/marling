@@ -48,6 +48,12 @@ int main() {
 		std::cout << "size: " << mem->size() << std::endl;
 		mem->detach();
 		delete mem;
+
+		SharedMemory* mem2 = new SharedMemory("file.txt");
+		mem2->attach();
+		std::cout << mem2->read() << std::endl;
+		mem2->detach();
+		delete mem2;
 	}
 	catch(std::logic_error error) {
 		std::cerr << "Exception: " << error.what() << std::endl;
