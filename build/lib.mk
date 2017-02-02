@@ -5,7 +5,7 @@ $(shell mkdir -p $(DAJO_OUT)/$(NAME))
 SOURCES=$(wildcard *.cc)
 OBJECTS=$(addprefix $(DAJO_OUT)/$(NAME)/,$(subst .cc,.o,$(SOURCES)))
 
--include $(OBJECTS:.o=.d)
+#-include $(OBJECTS:.o=.d)
 
 all: $(DAJO_OUT)/$(NAME).a
 
