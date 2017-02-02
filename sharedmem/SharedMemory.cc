@@ -48,6 +48,12 @@ void SharedMemory::update(std::string msg) {
    strncpy(ptr, msg.c_str(), SHM_SIZE);
 }
 
+std::string SharedMemory::read() {
+   METHOD("read()");
+
+   return ptr;
+}
+
 int SharedMemory::size() {
    METHOD("size()");
 
