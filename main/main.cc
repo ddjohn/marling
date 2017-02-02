@@ -1,3 +1,4 @@
+#include "SharedMemory.h"
 #include "Alsa.h"
 #include "Trace.h"
 #include <iostream>
@@ -41,6 +42,8 @@ int main() {
 		alsa2->read(buf, 3);
 		delete alsa2;
 		
+		SharedMemory* mem = new SharedMemory();
+		delete mem;
 	}
 	catch(std::logic_error error) {
 		std::cerr << "Exception: " << error.what() << std::endl;

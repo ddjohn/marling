@@ -6,6 +6,8 @@ export DAJO_BUILD=${DAJO_ROOT}/build
 export DAJO_OUT=${DAJO_ROOT}/out
 mkdir -p ${DAJO_OUT}
 
+export PATH=${DAJO_BUILD}:${PATH}
+
 m() {
-	make -f build.mk all
+	make -f build.mk "$@"
 }
