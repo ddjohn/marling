@@ -5,5 +5,5 @@ $(shell mkdir -p $(DAJO_OUT)/$(NAME))
 $(DAJO_OUT)/$(NAME)/%.o: %.cc
 	@echo " C++   $@"
 	$(V) $(CC) $(CFLAGS) $(addprefix -I,$(INCLUDES)) -o $@ -c $<
-	$(V) $(CC) -MM $(CFLAGS) $(addprefix -I,$(INCLUDES)) $< > $(subst .o,.d,$@)
+	$(V) $(CC) $(CFLAGS) $(addprefix -I,$(INCLUDES)) -MM -MT $@ $< -MF $(subst .o,.d,$@)
 

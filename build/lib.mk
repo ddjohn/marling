@@ -1,3 +1,4 @@
+include $(DAJO_BUILD)/common.mk
 include $(DAJO_BUILD)/compile.mk
 
 $(shell mkdir -p $(DAJO_OUT)/$(NAME))
@@ -5,7 +6,7 @@ $(shell mkdir -p $(DAJO_OUT)/$(NAME))
 SOURCES=$(wildcard *.cc)
 OBJECTS=$(addprefix $(DAJO_OUT)/$(NAME)/,$(subst .cc,.o,$(SOURCES)))
 
-#-include $(OBJECTS:.o=.d)
+-include $(OBJECTS:.o=.d)
 
 all: $(DAJO_OUT)/$(NAME).a
 
