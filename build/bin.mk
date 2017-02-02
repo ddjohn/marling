@@ -9,9 +9,9 @@ OBJECTS=$(addprefix $(DAJO_OUT)/$(NAME)/,$(subst .cc,.o,$(SOURCES)))
 #$(shell echo MKDIR $(DAJO_OUT)/$(NAME))
 $(shell mkdir -p $(DAJO_OUT)/$(NAME))
 
-all: $(DAJO_OUT)/$(NAME)/$(NAME).a
-	@echo " LIB  $(DAJO_OUT)/$(NAME).a"
-	@ar r $(DAJO_OUT)/$(NAME).a $(OBJECTS)
+all: $(DAJO_OUT)/$(NAME)/$(NAME) 
 
+$(DAJO_OUT)/$(NAME)/$(NAME): $(OBJECTS)
+	@echo " BIN  $(DAJO_OUT)/$(NAME)/$(NAME)"
+	g++ -o $(DAJO_OUT)/$(NAME)/$(NAME) $(OBJECTS) -L$(DAJO_OUT) -Wl,-Bstatic $(addprefix -l,$(LIBS)) -Wl,-Bdynamic -lasound
 
-$(DAJO_OUT)/$(NAME)/$(NAME).a: $(OBJECTS) 
