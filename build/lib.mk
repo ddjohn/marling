@@ -3,8 +3,8 @@ include $(DAJO_BUILD)/compile.mk
 
 $(shell mkdir -p $(DAJO_OUT)/$(NAME))
 
-SOURCES=$(wildcard *.cc)
-OBJECTS=$(addprefix $(DAJO_OUT)/$(NAME)/,$(subst .cc,.o,$(SOURCES)))
+OBJECTS := $(addprefix $(DAJO_OUT)/$(NAME)/,$(subst .cc,.o,$(wildcard *.cc)))
+OBJECTS += $(addprefix $(DAJO_OUT)/$(NAME)/,$(subst .cpp,.o,$(wildcard *.cpp)))
 
 -include $(OBJECTS:.o=.d)
 
@@ -12,7 +12,9 @@ all: $(DAJO_OUT)/$(NAME).a
 
 $(DAJO_OUT)/$(NAME).a: $(OBJECTS) 
 	@echo " LIB  $(DAJO_OUT)/$(NAME).a"
-	$(V) ar r $(DAJO_OUT)/$(NAME).a $(OBJECTS)
+	$(V) $(AR) ru $(DAJO_OUT)/$(NAME).a $(OBJECTS)
+	@echo " LIB  $(DAJO_OUT)/$(NAME).so"
+	$(V) $(CC) -sh$(AR)ed -o $(DAJO_OUT)/$(NAME).o $(OBJECTS)
 
 clean:
 	@echo "  RM  $(OBJECTS)"

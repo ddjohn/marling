@@ -7,3 +7,8 @@ $(DAJO_OUT)/$(NAME)/%.o: %.cc
 	$(V) $(CC) $(CFLAGS) $(addprefix -I,$(INCLUDES)) -o $@ -c $<
 	$(V) $(CC) $(CFLAGS) $(addprefix -I,$(INCLUDES)) -MM -MT $@ $< -MF $(subst .o,.d,$@)
 
+$(DAJO_OUT)/$(NAME)/%.o: %.cpp
+	@echo " C++   $@"
+	$(V) $(CC) $(CFLAGS) $(addprefix -I,$(INCLUDES)) -o $@ -c $<
+	$(V) $(CC) $(CFLAGS) $(addprefix -I,$(INCLUDES)) -MM -MT $@ $< -MF $(subst .o,.d,$@)
+
