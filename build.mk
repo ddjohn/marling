@@ -11,6 +11,8 @@ framework:
 	$(V) make -s -C framework/trace -f build.mk all
 	@echo " CD   framework/alsa"
 	$(V) make -s -C framework/alsa  -f build.mk all
+	@echo " CD   framework/webs"
+	$(V) make -s -C framework/webs  -f build.mk all
 	@echo " CD   framework/sharedmem"
 	$(V) make -s -C framework/sharedmem  -f build.mk all
 

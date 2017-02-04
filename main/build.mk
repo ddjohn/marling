@@ -1,9 +1,9 @@
 
-NAME = main
-RUN = 0
+NAME := main
+RUN  := 0
 
-INCLUDES = framework/trace external/protobuf external/zeromq
-STATIC_LIBS = trace 
-SHARED_LIBS = protobuf zeromq sodium pthread
+INCLUDES    := framework/serial framework/trace
+STATIC_LIBS := trace 
+SHARED_LIBS := serial
 
 include ${DAJO_BUILD}/bin.mk
