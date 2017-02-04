@@ -1,10 +1,11 @@
-AR     := ar
-CC     := g++ 
-CFLAGS := -std=c++11 -g -Wall -Werror -fPIC -Wno-sign-compare -Wno-unknown-pragmas -DHAVE_PTHREAD -Iapi -Iinc  -DCONFIGURED -Wno-unused-variable
+AR       := ar
+CPP      := g++ 
+CC       := gcc 
+CPPFLAGS := -std=c++11 -g -Wall -Werror -fPIC -Wno-sign-compare -Wno-unknown-pragmas -DHAVE_PTHREAD -Iapi -Iinc  -DCONFIGURED -Wno-unused-variable -fpermissive -Wno-error
+CFLAGS   := -g -Wall -Werror -fPIC -Wno-sign-compare -Wno-unknown-pragmas -DHAVE_PTHREAD -Iapi -Iinc  -DCONFIGURED -Wno-unused-variable -Wno-error
 
 ifeq ($(VERBOSE),1)
-$(warning *** verbose mode ***)
-V      :=
+V        :=
 else
-V      := @
+V        := @
 endif
