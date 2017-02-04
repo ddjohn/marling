@@ -16,10 +16,10 @@ framework:
 
 .PHONY: test
 test:
-	@echo " CD   test_alsa"
-	$(V) make -s -C test_alsa -f build.mk all
-	@echo " CD   test_sharedmem"
-	$(V) make -s -C test_sharedmem -f build.mk all
+	@echo " CD   test/test_alsa"
+	$(V) make -s -C test/test_alsa -f build.mk all
+	@echo " CD   test/test_sharedmem"
+	$(V) make -s -C test/test_sharedmem -f build.mk all
 
 .PHONY: external
 external:

@@ -2,7 +2,7 @@
 NAME = test_sharedmem
 RUN = 1
 
-INCLUDES = $(DAJO_ROOT)/sharedmem $(DAJO_ROOT)/trace
+INCLUDES = framework/sharedmem framework/trace
 STATIC_LIBS = sharedmem trace
 SHARED_LIBS = 
 

@@ -2,7 +2,7 @@
 NAME = test_alsa
 RUN = 1
 
-INCLUDES = $(DAJO_ROOT)/alsa $(DAJO_ROOT)/trace
+INCLUDES = framework/alsa framework/trace
 STATIC_LIBS = alsa trace
 SHARED_LIBS = asound
 
