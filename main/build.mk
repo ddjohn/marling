@@ -2,8 +2,8 @@
 NAME = main
 RUN = 0
 
-INCLUDES = $(DAJO_ROOT)/sharedmem $(DAJO_ROOT)/alsa $(DAJO_ROOT)/trace
-STATIC_LIBS = alsa sharedmem trace
-SHARED_LIBS = asound
+INCLUDES = framework/trace external/zeromq
+STATIC_LIBS = trace
+SHARED_LIBS = zeromq
 
 include ${DAJO_BUILD}/bin.mk

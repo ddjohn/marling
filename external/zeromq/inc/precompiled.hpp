@@ -38,7 +38,7 @@
 #endif
 
 // 0MQ definitions and exported functions
-#include "../include/zmq.h"
+#include "zmq.h"
 
 // 0MQ DRAFT definitions and exported functions
 #include "zmq_draft.h"

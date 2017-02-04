@@ -1,20 +1,22 @@
 include $(DAJO_BUILD)/common.mk
-include $(DAJO_BUILD)/compile.mk
+#-include $(OBJECTS:.o=.d)
 
 $(shell mkdir -p $(DAJO_OUT)/$(NAME))
 
-OBJECTS := $(addprefix $(DAJO_OUT)/$(NAME)/,$(subst .cc,.o,$(wildcard *.cc)))
-OBJECTS += $(addprefix $(DAJO_OUT)/$(NAME)/,$(subst .cpp,.o,$(wildcard *.cpp)))
+OBJECTS := $(addprefix $(DAJO_OUT)/$(NAME)/,$(subst .cc,.o,$(wildcard src/*.cc)))
+OBJECTS += $(addprefix $(DAJO_OUT)/$(NAME)/,$(subst .cpp,.o,$(wildcard src/*.cpp)))
 
--include $(OBJECTS:.o=.d)
+OBJECTS := $(subst /src/,/,$(OBJECTS))
 
-all: $(DAJO_OUT)/$(NAME).a
+include $(DAJO_BUILD)/compile.mk
 
-$(DAJO_OUT)/$(NAME).a: $(OBJECTS) 
-	@echo " LIB  $(DAJO_OUT)/$(NAME).a"
-	$(V) $(AR) ru $(DAJO_OUT)/$(NAME).a $(OBJECTS)
-	@echo " LIB  $(DAJO_OUT)/$(NAME).so"
-	$(V) $(CC) -sh$(AR)ed -o $(DAJO_OUT)/$(NAME).o $(OBJECTS)
+all: $(DAJO_OUT)/lib$(NAME).a
+
+$(DAJO_OUT)/lib$(NAME).a: $(OBJECTS) 
+	@echo " LIB  $(DAJO_OUT)/lib$(NAME).a"
+	$(V) $(AR) ru $(DAJO_OUT)/lib$(NAME).a $(OBJECTS)
+	@echo " LIB  $(DAJO_OUT)/lib$(NAME).so"
+	$(V) $(CC) -shared -o $(DAJO_OUT)/lib$(NAME).o $(OBJECTS)
 
 clean:
 	@echo "  RM  $(OBJECTS)"
