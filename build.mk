@@ -27,6 +27,8 @@ external:
 	$(V) make -s -C external/zeromq -f build.mk all
 	@echo " CD   external/protobuf"
 	$(V) make -s -C external/protobuf -f build.mk all
+	@echo " CD   external/websocket"
+	$(V) make -s -C external/websocket -f build.mk all
 	@echo " CD   external/sodium"
 	$(V) make -s -C external/sodium -f build.mk all
 

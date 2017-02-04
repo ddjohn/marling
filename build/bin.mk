@@ -3,12 +3,13 @@ include $(DAJO_BUILD)/compile.mk
 
 $(shell mkdir -p $(DAJO_OUT)/$(NAME))
 
-OBJECTS := $(addprefix $(DAJO_OUT)/$(NAME)/,$(subst .cc,.o,$(wildcard src/*.cc)))
+OBJECTS := $(addprefix $(DAJO_OUT)/$(NAME)/,$(subst  .cc,.o,$(wildcard src/*.cc )))
 OBJECTS += $(addprefix $(DAJO_OUT)/$(NAME)/,$(subst .cpp,.o,$(wildcard src/*.cpp)))
+OBJECTS += $(addprefix $(DAJO_OUT)/$(NAME)/,$(subst   .c,.o,$(wildcard src/*.c  )))
 
 OBJECTS := $(subst /src/,/,$(OBJECTS))
 
--include $(OBJECTS:.o=.d)
+#-include $(OBJECTS:.o=.d)
 
 all: $(DAJO_OUT)/$(NAME).bin
 ifeq ($(RUN),1)
