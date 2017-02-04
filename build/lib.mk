@@ -3,8 +3,9 @@ include $(DAJO_BUILD)/common.mk
 
 $(shell mkdir -p $(DAJO_OUT)/$(NAME))
 
-OBJECTS := $(addprefix $(DAJO_OUT)/$(NAME)/,$(subst .cc,.o,$(wildcard src/*.cc)))
+OBJECTS := $(addprefix $(DAJO_OUT)/$(NAME)/,$(subst  .cc,.o,$(wildcard src/*.cc )))
 OBJECTS += $(addprefix $(DAJO_OUT)/$(NAME)/,$(subst .cpp,.o,$(wildcard src/*.cpp)))
+OBJECTS += $(addprefix $(DAJO_OUT)/$(NAME)/,$(subst   .c,.o,$(wildcard src/*.c  )))
 
 OBJECTS := $(subst /src/,/,$(OBJECTS))
 

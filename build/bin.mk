@@ -19,6 +19,7 @@ endif
 
 $(DAJO_OUT)/$(NAME).bin: $(OBJECTS)
 	@echo " BIN  $(DAJO_OUT)/$(NAME).bin"
+	echo $(CC) -o $(DAJO_OUT)/$(NAME).bin $(OBJECTS) -L$(DAJO_OUT) -Wl,-Bstatic $(addprefix -l,$(STATIC_LIBS)) -Wl,-Bdynamic $(addprefix -l,$(SHARED_LIBS))
 	$(V) $(CC) -o $(DAJO_OUT)/$(NAME).bin $(OBJECTS) -L$(DAJO_OUT) -Wl,-Bstatic $(addprefix -l,$(STATIC_LIBS)) -Wl,-Bdynamic $(addprefix -l,$(SHARED_LIBS))
 
 clean:

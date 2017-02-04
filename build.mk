@@ -15,7 +15,7 @@ framework:
 	$(V) make -s -C framework/sharedmem  -f build.mk all
 
 .PHONY: test
-test:
+test: external framework
 	@echo " CD   test/test_alsa"
 	$(V) make -s -C test/test_alsa -f build.mk all
 	@echo " CD   test/test_sharedmem"
@@ -27,6 +27,8 @@ external:
 	$(V) make -s -C external/zeromq -f build.mk all
 	@echo " CD   external/protobuf"
 	$(V) make -s -C external/protobuf -f build.mk all
+	@echo " CD   external/sodium"
+	$(V) make -s -C external/sodium -f build.mk all
 
 .PHONY: clean
 clean:
