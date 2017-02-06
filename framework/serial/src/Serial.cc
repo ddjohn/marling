@@ -45,7 +45,7 @@ bool Serial::rx(char* buf, int& length) {
 
    bool count = read(fd, (void*)buf, length);
    if(count < 0) {
-	EXCEPTION("UART Rx Error2");
+	EXCEPTION("UART Rx Error");
    } else if(count == 0) {
 	length = 0;
 	return false;

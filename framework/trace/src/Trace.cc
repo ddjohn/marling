@@ -10,18 +10,21 @@ Trace::Trace(std::string clazz, std::string method, std::string file, int line) 
 
 	char buf[256];
 	sprintf(buf, "--> (%d) %s::%s (%s, line %d)", ++scope, clazz.c_str(), method.c_str(), file.c_str(), line);
+if(getenv("TRACE"))
 	std::cerr << buf << std::endl;
 }
 
 Trace::~Trace() {
 	char buf[256];
 	sprintf(buf, "<-- (%d) %s::%s", scope--, clazz.c_str(), method.c_str());
+if(getenv("TRACE"))
 	std::cerr << buf << std::endl;
 }
 	
 void Trace::log(std::string msg) {
 	char buf[256];
 	sprintf(buf, "### (%d) %s::%s %s", scope, clazz.c_str(), method.c_str(), msg.c_str());
+if(getenv("TRACE"))
 	std::cerr << buf << std::endl;
 }
 
