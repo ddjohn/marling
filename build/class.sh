@@ -20,7 +20,7 @@ private:
 #endif
 +++
 
-cat <<- +++ > ${1}.cc
+cat <<- +++ > ${1}.cpp
 #include "Trace.h"
 #include "${CLASS}.h"
 
