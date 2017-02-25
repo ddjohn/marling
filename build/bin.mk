@@ -20,8 +20,8 @@ endif
 
 $(DAJO_OUT)/$(NAME).bin: $(OBJECTS)
 	@echo " BIN  $(DAJO_OUT)/$(NAME).bin"
-	echo $(V) $(CC) -o $(DAJO_OUT)/$(NAME).bin $(OBJECTS) -L$(DAJO_OUT) -Wl,-Bstatic $(addprefix -l,$(STATIC_LIBS)) -Wl,-Bdynamic $(addprefix -l,$(SHARED_LIBS))
-	$(V) $(CPP) -o $(DAJO_OUT)/$(NAME).bin $(OBJECTS) -L$(DAJO_OUT) -Wl,-Bstatic $(addprefix -l,$(STATIC_LIBS)) -Wl,-Bdynamic $(addprefix -l,$(SHARED_LIBS))
+	#echo $(V) $(CC) -o $(DAJO_OUT)/$(NAME).bin $(OBJECTS) -L$(DAJO_OUT) -Wl,-Bstatic $(addprefix -l,$(STATIC_LIBS)) -Wl,-Bdynamic $(addprefix -l,$(SHARED_LIBS))
+	$(V) $(CPP) -o $(DAJO_OUT)/$(NAME).bin $(OBJECTS) -L$(DAJO_OUT) -pthread -Wl,-Bstatic $(addprefix -l,$(STATIC_LIBS)) -Wl,-Bdynamic $(addprefix -l,$(SHARED_LIBS))
 
 clean:
 	@echo " RM $(OBJECTS)"
