@@ -7,7 +7,7 @@
 
 CLASS("Program");
 
-Program::Program(std::string name) {
+Program::Program(std::string name) : Pid("."), Config("config.json") {
    METHOD("Program(std::string)");
 
 }

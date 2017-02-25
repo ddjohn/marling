@@ -2,8 +2,8 @@
 NAME := main
 RUN  := 0
 
-INCLUDES    := framework/trace
+INCLUDES    := framework/trace external/libjson
 STATIC_LIBS := trace
-SHARED_LIBS := 
+SHARED_LIBS := json
 
 include ${DAJO_BUILD}/bin.mk

@@ -2,11 +2,12 @@
 #define PROGRAM_H
 
 #include <Pid.h>
+#include <Config.h>
 
 #include <string>
 #include <vector>
 
-class Program : Pid {
+class Program : Pid, Config {
 
 public:
    Program(std::string name);
